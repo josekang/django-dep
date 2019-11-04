@@ -1,0 +1,22 @@
+{% extends 'fifth_app/base.html' %}
+{% block content %}
+
+    {% if registered %}
+     <div class="jumbotron">
+       <h1>Thank you for registering</h1>
+
+     </div>
+     {% else %}
+     <div class="jumbotron">
+       <form enctype="multipart/form-data" method="POST">
+         {% csrf_token %}
+         {{ user_form.as_p }}
+         {{ profile_form.as_p}}
+         <input type="submit" value="submit" class="btn btn-primary">
+       </form>
+
+
+     </div>
+    {% endif%}
+
+{%endblock%}
